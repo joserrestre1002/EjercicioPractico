@@ -1,25 +1,4 @@
-CREATE database PROSPECTOS
-use PROSPECTOS
 
-create table tablaProspectos(
-Id int identity(1,1),
-Nombre varchar (30),
-Primer_Apellido varchar(15),
-Segundo_Apellido varchar(15),
-Calle varchar(40),
-Numero int,
-Colonia varchar(40),
-Codigo_Postal int,
-Telefono int,
-RFC varchar(25),
-Archivos varchar(max),
-Estatus varchar(25)
-)
-
-create procedure sp_load2
-as begin
-select * from tablaProspectos
-End
 CREATE database EPROSPECTOS
 use EPROSPECTOS
 
@@ -39,6 +18,10 @@ Estado varchar(25),
 Notas varchar(max)
 )
 
+create procedure sp_load2
+as begin
+select * from tablaProspectos
+End
 create procedure sp_load3
 as begin
 select Nombre,Primer_Apellido,Segundo_Apellido,Estado,Notas from tablaProspectos
