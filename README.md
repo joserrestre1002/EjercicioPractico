@@ -6,6 +6,7 @@ para poder correr el programa sin ningun problema se necesita de visual studio 2
 en la carpeta EjercicioPractico hay un archivo con el mismo nobre con extencion.sln, haz doble click en el archivo para poder abrir el proyecto completo 
 en visual studio 
 
-tambien dentro de la carpeta raiz hay un archivo de nombre "codigo sqlServer.txt" que contiene todo el codigo para crear la base de datos a la que se conecta el programa
+Tambien dentro de la carpeta raiz hay un archivo de nombre "codigo sqlServer.txt" que contiene todo el codigo para crear la base de datos a la que se conecta el programa
 
-los archivos de codigo se encuentran en  raiz/EjercicioPractico/Pages
+Los archivos de codigo se encuentran en  raiz/EjercicioPractico/Pages
+En la carpeta uploads se guardaran los archivos seleccionados 
