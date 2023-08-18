@@ -7,3 +7,5 @@ en la carpeta EjercicioPractico hay un archivo con el mismo nobre con extencion.
 en visual studio 
 
 tambien dentro de la carpeta raiz hay un archivo de nombre "codigo sqlServer.txt" que contiene todo el codigo para crear la base de datos a la que se conecta el programa
+
+los archivos de codigo se encuentran en  raiz/EjercicioPractico/Pages
