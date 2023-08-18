@@ -1,0 +1,101 @@
+CREATE database PROSPECTOS
+use PROSPECTOS
+
+create table tablaProspectos(
+Id int identity(1,1),
+Nombre varchar (30),
+Primer_Apellido varchar(15),
+Segundo_Apellido varchar(15),
+Calle varchar(40),
+Numero int,
+Colonia varchar(40),
+Codigo_Postal int,
+Telefono int,
+RFC varchar(25),
+Archivos varchar(max),
+Estatus varchar(25)
+)
+
+create procedure sp_load2
+as begin
+select * from tablaProspectos
+End
+CREATE database EPROSPECTOS
+use EPROSPECTOS
+
+create table tablaProspectos(
+Id int identity(1,1),
+Nombre varchar (30),
+Primer_Apellido varchar(15),
+Segundo_Apellido varchar(15),
+Calle varchar(40),
+Numero varchar(20),
+Colonia varchar(40),
+Codigo_Postal varchar(10),
+Telefono varchar(30),
+RFC varchar(25),
+Archivos varchar(max),
+Estado varchar(25),
+Notas varchar(max)
+)
+
+create procedure sp_load3
+as begin
+select Nombre,Primer_Apellido,Segundo_Apellido,Estado,Notas from tablaProspectos
+End
+
+
+--Crear prospectos
+create procedure sp_create
+@Nombre varchar(15),
+@ApellidoUno Varchar(50),
+@ApellidoDos varchar(max),
+@Calle varchar(40),
+@Numero varchar(20),
+@Colonia varchar(40),
+@CodigoPostal varchar(10),
+@Telefono varchar(30),
+@rfc varchar(25),
+@Archivos varchar(max),
+@Status varchar(20),
+@Notas varchar(max)
+as begin
+insert into tablaProspectos values (@Nombre, @ApellidoUno, @ApellidoDos, @Calle, @Numero, @Colonia, @CodigoPostal, @Telefono, @rfc, @Archivos, @Status, @Notas)
+end
+
+--Actualizar prospectos
+create procedure sp_update
+@Id int,
+@Nombre varchar(15),
+@ApellidoUno Varchar(50),
+@ApellidoDos varchar(max),
+@Calle varchar(40),
+@Numero varchar(20),
+@Colonia varchar(40),
+@CodigoPostal varchar(10),
+@Telefono varchar(30),
+@rfc varchar(25),
+@Archivos varchar(max),
+@Status varchar(20),
+@Notas varchar(max)
+as begin
+update tablaProspectos set Nombre=@Nombre, Primer_Apellido=@ApellidoUno, Segundo_Apellido=@ApellidoDos,  Calle=@Calle, Numero=@Numero, Colonia=@Colonia, Codigo_Postal=@CodigoPostal,Telefono=@Telefono, RFC=@rfc, Archivos=@Archivos, Estado=@Status, Notas=@Notas
+where Id = @Id
+end
+
+--Leer Prospectos
+
+create procedure sp_read
+@Id int 
+as begin
+select * from tablaProspectos where Id=@Id
+end
+
+select * from tablaProspectos
+
+create procedure sp_delete
+
+
+DELETE FROM tablaProspectos
+
+DBCC CHECKIDENT (tablaProspectos, RESEED, 0)
