@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="EjercicioPractico.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>
+         <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+    </title>
+    <!--Bootstrap-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .message_alert{
+            width:100%;
+            position:fixed;
+            top:0;
+            z-index:100000;
+            padding:0px;
+            font-size:15px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function ShowMessage(message, messagetype) {
+            var css;
+            switch (messagetype) {
+                case 'Error':
+                    css= 'alert-warning'
+                    break
+            }
+
+            $('#alert').append('<div id="alert" style="margin: 0 0.5%; -webkit-box-shadow:3px 4px 6px #999;" class="alert fade in' + css + '"><a href="#" class="close" data-dismiss="alert" aria-label "close">&times;</a><strong>' + messagetype + '!</strong><span>' + message+'</span></div>')
+        }
+    </script>
+
+</head>
+<body >
+   
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Practica</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.aspx">Agregar Prospecto</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="ListadoProspectos.aspx">Lista de prospectos</a>
+        </li>
+
+          <li class="nav-item">
+          <a class="nav-link" href="EvaluacionProspecto.aspx"  onclick="" >Evaluacion de Prospecto </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    </script>
+     
+</body>
+</html>

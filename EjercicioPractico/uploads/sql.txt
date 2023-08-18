@@ -1,0 +1,114 @@
+CREATE database PROSPECTOS
+use PROSPECTOS
+
+create table tablaProspectos(
+Id int identity(1,1),
+Nombre varchar (30),
+Primer_Apellido varchar(15),
+Segundo_Apellido varchar(15),
+Calle varchar(40),
+Numero int,
+Colonia varchar(40),
+Codigo_Postal int,
+Telefono int,
+RFC varchar(25),
+Archivos varchar(max),
+Estatus varchar(25)
+)
+
+create procedure sp_load2
+as begin
+select * from tablaProspectos
+End
+
+--Crear prospectos
+create procedure sp_create
+@Nombre varchar(15),
+@ApellidoUno int,
+@ApellidoDos varchar(max),
+@Calle varchar(40),
+@Numero int,
+@Colonia varchar(40),
+@CodigoPostal int,
+@Telefono int,
+@rfc varchar(25),
+@Archivos varchar(max),
+@Status varchar(20)
+as begin
+insert into tablaProspectos values (@Nombre, @ApellidoUno, @ApellidoDos, @Calle, @Numero, @Colonia, @CodigoPostal, @Telefono, @rfc, @Archivos, )
+end
+
+--Actualizar prospectos
+create procedure sp_create
+@Id int,
+@Nombre varchar(15),
+@ApellidoUno int,
+@ApellidoDos varchar(max),
+@Calle varchar(40),
+@Numero int,
+@Colonia varchar(40),
+@CodigoPostal int,
+@Telefono int,
+@rfc varchar(25),
+@Archivos varchar(max),
+@Status varchar(20)
+as begin
+update tablaProspectos set Nombre=@Nombre, Primer_Apellido=@ApellidoUno, Segundo_Apellido=@ApellidoDos,  Calle=@Calle, Numero=@Numero, Colonia=@Colonia, Codigo_Postal=@CodigoPostal,Telefono=@Telefono, RFC=@rfc, Archivos=@Archivos, Status=@Status
+where I = @Id
+end
+
+
+
+
+CREATE database CRUD
+
+use CRUD
+
+create table Ususarios(
+	Id_Usuario int identity(1,1),
+	Nombre varchar(15),
+	Edad int,
+	Correo varchar(max), 
+	Fecha_Nacimiento date)
+
+
+create procedure sp_load1
+as begin
+select * from Ususarios
+End
+
+--CRUD: CREATE, READ,, UPDATE, DELETE
+create procedure sp_create
+@Nombre varchar(15),
+@Edad int,
+@Correo varchar(max),
+@Fecha date
+as begin
+insert into Ususarios values (@Nombre, @Edad, @Correo, @Fecha)
+end
+
+
+create procedure sp_read
+@Id int 
+as begin
+select * from Ususarios where Id_Usuario=@Id
+end
+
+create procedure sp_update
+@Id int,
+@Nombre varchar(15),
+@Edad int,
+@Correo varchar(max),
+@Fecha date
+as begin
+update Ususarios set Nombre=@Nombre, Edad=@Edad, Correo=@Correo, Fecha_Nacimiento=@Fecha
+where Id_Usuario = @Id
+end
+
+create procedure sp_delete
+@Id int
+as begin
+delete from Ususarios where Id_Usuario=@Id
+end
+
+select * from Ususarios

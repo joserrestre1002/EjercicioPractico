@@ -1,0 +1,28 @@
+
+Name: the akosombo power station
+amoutn enegergy: 1036
+dam 
+
+
+
+
+
+
+name:svartsengi
+geotermic
+location: valley
+amout: 74mW
+opening date: 1976
+
+theppana wind farm
+7mw
+
+rosamond 1&2 projects
+47mw
+desert
+2013
+
+
+
+
+1972
